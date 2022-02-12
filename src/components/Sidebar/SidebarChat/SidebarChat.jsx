@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Avatar from '@mui/material/Avatar';
 import { db } from "../../../firebaseConfig";
-import { addDoc, collection, onSnapshot, orderBy } from 'firebase/firestore'
+import { collection, onSnapshot, orderBy } from 'firebase/firestore'
 import { Link } from "react-router-dom"
 import './SidebarChat.css'
 

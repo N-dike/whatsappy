@@ -11,8 +11,9 @@ import { useStateValue } from '../../StateProvider'
 
 function Sidebar() {
 const [{user, page}, dispatch] = useStateValue()
-  const [rooms, setRooms] = useState([])
-    useEffect(() => {
+   const [rooms, setRooms] = useState([])
+
+   useEffect(() => {
        const userRef  = collection(db, 'rooms')
        onSnapshot(userRef, (snapshot) =>{
            setRooms(snapshot.docs.map(doc =>
@@ -23,6 +24,7 @@ const [{user, page}, dispatch] = useStateValue()
        
     }, []);
 
+ 
     const createChat =  () => {
         const roomName = prompt("Please enter name for chat room")
 
@@ -65,19 +67,20 @@ const [{user, page}, dispatch] = useStateValue()
                 type="text" />
                 </form>
             </div>
-            <div className="sidebar-chats">
-                <div className="sidebar-chatContainer"> 
-                {rooms.map(room =>(
-                    <SidebarChat key={room.id} id={room.id}
-                    name={room.data.name}/>
-                ))}
-                </div>
+              
+              <div className="sidebar-chats">
+                 <div className="sidebar-chatContainer"> 
+                 {rooms.map(room =>(
+                     <SidebarChat key={room.id} id={room.id}
+                     name={room.data.name}/>
+                 ))}
+                 </div>
                 <div onClick = {createChat} className= "sidebar-chatAddroom">
                 <IconButton >
                     <Add />
                 </IconButton>
-        </div>
-            </div>
+                </div>
+                </div>
         </div>
     )
 }

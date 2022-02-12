@@ -2,14 +2,15 @@ import './App.css';
 import Sidebar from './components/Sidebar/Sidebar';
 import Chat from './components/Chat/Chat';
 import Login from './components/Login/Login'
-
+import React from 'react';
 import { BrowserRouter, Routes, Route, } from "react-router-dom"
 import { useStateValue } from './StateProvider'
-
 
 function App() {
   const [{user, page}, dispatch] = useStateValue()
 
+ 
+  
 
   return ( 
     <div className="app">
